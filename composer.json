@@ -41,7 +41,7 @@
     "extra": {
         "symfony": {
             "endpoint": [
-                "bitbucket.org/ipedis/security-file-bundle-recipe/index.json",
+                "bitbucket.org/ipedis/security-file-bundle-recipe/raw/master/index.json",
                 "flex://defaults"
             ]
         }
