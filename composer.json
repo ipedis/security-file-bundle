@@ -32,10 +32,6 @@
         {
             "type": "vcs",
             "url": "bitbucket:ipedis/validation-handler.git"
-        },
-        {
-            "type": "vcs",
-            "url": "bitbucket:ipedis/security-file-bundle-recipe.git"
         }
     ],
     "require-dev": {
@@ -45,7 +41,6 @@
     "extra": {
         "symfony": {
             "endpoint": [
-                "bitbucket.org/ipedis/security-file-bundle-recipe/raw/master/index.json",
                 "flex://defaults"
             ]
         }
