@@ -12,7 +12,7 @@
             "source": {
                 "type": "git",
                 "url": "bitbucket:ipedis/file-sanitizer.git",
-                "reference": "6c4ca9ff879533557b982fac37e9d4b3d7ce8b06"
+                "reference": "27ae795809df7ee0bb02ecdba7ffa4fddd685897"
             },
             "require": {
                 "ext-dom": "*",
