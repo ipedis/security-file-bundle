@@ -32,6 +32,10 @@
         {
             "type": "vcs",
             "url": "bitbucket:ipedis/validation-handler.git"
+        },
+        {
+            "type": "vcs",
+            "url": "bitbucket:ipedis/security-file-bundle-recipe.git"
         }
     ],
     "require-dev": {
