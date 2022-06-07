@@ -1,0 +1,14 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  Selective\ArchiveBomb\Scanner\BombScanner: ~
+  Ipedis\SecurityFileBundle\Service\BombScanner\BombScannerDecorator:
+    decorates: Selective\ArchiveBomb\Scanner\BombScanner
+    arguments:
+      $bombScanner: '@.inner'
+      $engines: '%scanner.engines%'
+
+  Ipedis\SecurityFileBundle\Service\Validator\ValidatorAbstract:
+    abstract: true

@@ -1,0 +1,23 @@
+security_file:
+  sanitizers:
+    html_sanitizer:
+      type: html
+      config:
+        ignored_step:
+        custom_step:
+    xml_sanitizer:
+      type:  xml
+      config:
+        ignored_step:
+        custom_step:
+    html_config_sanitizer:
+      type: html
+      config:
+        ignored_step:
+          - Ipedis\FileSanitizer\Pipeline\Steps\PhpTagCleanupStep
+        custom_step:
+
+  scanner:
+    engines:
+      - zip
+      - rar

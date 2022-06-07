@@ -1,0 +1,15 @@
+services:
+  _defaults:
+    public: true
+    autowire: true
+    autoconfigure: true
+
+  Tests\DummyService\:
+    resource: '../../DummyService/*'
+
+  Ipedis\SecurityFileBundle\Service\BombScanner\BombScannerDecorator:
+    decorates: Selective\ArchiveBomb\Scanner\BombScanner
+    arguments:
+      $bombScanner: '@.inner'
+      $engines: '%scanner.engines%'
+

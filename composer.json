@@ -1,0 +1,49 @@
+{
+    "name": "ipedis/security-file-bundle",
+    "description": "Symfony bundle for file security",
+    "autoload": {
+        "psr-4": {
+            "Ipedis\\SecurityFileBundle\\": "src/",
+            "Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "melchior",
+            "email": "melchior@ipedis.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "symfony/http-kernel": "6.0.*",
+        "symfony/dependency-injection": "6.0.*",
+        "symfony/config": "6.0.*",
+        "ipedis/file-sanitizer": "^1.0",
+        "symfony/options-resolver": "6.0.*",
+        "symfony/yaml": "6.0.*",
+        "selective/archive-bomb-scanner": "^2.0",
+        "ipedis/validation-handler": "^1.0"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "bitbucket:ipedis/file-sanitizer.git"
+        },
+        {
+            "type": "vcs",
+            "url": "bitbucket:ipedis/validation-handler.git"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "symfony/phpunit-bridge": "6.0.*"
+    },
+    "extra": {
+        "symfony": {
+            "endpoint": [
+                "bitbucket.org/ipedis/security-file-bundle-recipe/index.json",
+                "flex://defaults"
+            ]
+        }
+    }
+}
