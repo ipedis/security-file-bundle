@@ -8,6 +8,17 @@ This bundle includes three libraries for the security of files.
 
 # Installation :
 
+add on your composer.json the repository:
+```
+"repositories": [
+{
+"type": "vcs",
+"url": "bitbucket.org:ipedis/security-file-bundle.git"
+}
+...
+```
+then
+
 `composer require "ipedis/security-file-bundle"`
 
 # Usage :
