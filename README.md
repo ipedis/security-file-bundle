@@ -13,7 +13,15 @@ add on your composer.json the repository:
 "repositories": [
 {
 "type": "vcs",
-"url": "bitbucket.org:ipedis/security-file-bundle.git"
+"url": "bitbucket.org:ipedis/security-file-bundle.git",
+},
+{
+"type": "vcs",
+"url": "bitbucket:ipedis/file-sanitizer.git"
+},
+{
+"type": "vcs",
+"url": "bitbucket:ipedis/validation-handler.git"
 }
 ...
 ```

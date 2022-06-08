@@ -2,12 +2,12 @@
 
 namespace Tests\DependencyInjection;
 
-use Ipedis\SecurityFileBundle\Service\BombScanner\BombScannerInterface;
+use Ipedis\SecurityFileBundle\Service\Validator\FileValidatorInterface;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Tests\Kernel\SecurityFileKernel;
 
-class BombScannerDependencyInjectionTest extends TestCase
+class FileValidatorDependencyInjectionTest extends TestCase
 {
     private ContainerInterface $container;
 
@@ -18,9 +18,9 @@ class BombScannerDependencyInjectionTest extends TestCase
         $this->container = $kernel->getContainer();
     }
 
-    public function testBombScannerDecoratorService(): void
+    public function testFileValidatorService(): void
     {
-        $this->assertTrue($this->container->has(BombScannerInterface::class));
+        $this->assertTrue($this->container->has(FileValidatorInterface::class));
     }
 
 }

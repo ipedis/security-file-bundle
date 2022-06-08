@@ -9,6 +9,7 @@ services:
     arguments:
       $bombScanner: '@.inner'
       $engines: '%scanner.engines%'
+  Ipedis\SecurityFileBundle\Service\BombScanner\BombScannerInterface: '@Ipedis\SecurityFileBundle\Service\BombScanner\BombScannerDecorator'
 
-  Ipedis\SecurityFileBundle\Service\Validator\ValidatorAbstract:
-    abstract: true
+  Ipedis\SecurityFileBundle\Service\Validator\FileValidator: ~
+  Ipedis\SecurityFileBundle\Service\Validator\FileValidatorInterface: '@Ipedis\SecurityFileBundle\Service\Validator\FileValidator'
