@@ -13,7 +13,7 @@ add on your composer.json the repository:
 "repositories": [
 {
 "type": "vcs",
-"url": "bitbucket.org:ipedis/security-file-bundle.git"
+"url": "bitbucket:ipedis/security-file-bundle.git"
 },
 {
 "type": "vcs",
