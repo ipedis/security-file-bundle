@@ -13,7 +13,7 @@ add on your composer.json the repository:
 "repositories": [
 {
 "type": "vcs",
-"url": "bitbucket.org:ipedis/security-file-bundle.git",
+"url": "bitbucket.org:ipedis/security-file-bundle.git"
 },
 {
 "type": "vcs",
@@ -92,24 +92,8 @@ security_file:
 
 ### validation handler :
 
-To use it we should create service that extends `ValidatorAbstract` 
-and implement method `registeredConstraints` where we provide the list of constraints. 
+Use service `FileValidator`
 
-**ex:**
-
-```phpt
-class PdfValidator extends ValidatorAbstract
-{
-    protected function registeredConstraints(): array
-    {
-        return [
-            new FileSize('1', 'M'),
-            MimeTypes::with(PdfMimeType::class)
-        ];
-    }
-
-}
-```
 <a href="https://bitbucket.org/ipedis/validation-handler/src/master/README.md">Library documentation</a>
 
 
