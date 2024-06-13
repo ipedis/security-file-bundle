@@ -22,7 +22,7 @@
         "symfony/options-resolver": "6.4.*",
         "symfony/yaml": "6.4.*",
         "selective/archive-bomb-scanner": "^2.0",
-        "ipedis/validation-handler": "dev-update_symfony-6.4"
+        "ipedis/validation-handler": "^2.0"
     },
     "repositories": [
         {
