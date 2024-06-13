@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9699401166709f5d4150d1da1855414f",
+    "content-hash": "1f0d1c7962913ef98343d05e890f69ad",
     "packages": [
         {
             "name": "ipedis/file-sanitizer",
@@ -44,7 +44,7 @@
         },
         {
             "name": "ipedis/validation-handler",
-            "version": "dev-update_symfony-6.4",
+            "version": "v2.0",
             "source": {
                 "type": "git",
                 "url": "bitbucket:ipedis/validation-handler.git",
@@ -4075,9 +4075,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "ipedis/validation-handler": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
