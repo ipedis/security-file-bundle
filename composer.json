@@ -18,7 +18,7 @@
         "symfony/http-kernel": "6.4.*",
         "symfony/dependency-injection": "6.4.*",
         "symfony/config": "6.4.*",
-        "ipedis/file-sanitizer": "^1.0",
+        "ipedis/file-sanitizer": "^2.0.0",
         "symfony/options-resolver": "6.4.*",
         "symfony/yaml": "6.4.*",
         "selective/archive-bomb-scanner": "^2.0",

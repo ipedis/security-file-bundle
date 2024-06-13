@@ -4,11 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1f0d1c7962913ef98343d05e890f69ad",
+    "content-hash": "2e51c558d4276b61cf29047252421c61",
     "packages": [
         {
             "name": "ipedis/file-sanitizer",
-            "version": "1.0.0",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "bitbucket:ipedis/file-sanitizer.git",
