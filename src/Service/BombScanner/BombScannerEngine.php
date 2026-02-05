@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Ipedis\SecurityFileBundle\Service\BombScanner;
 
 use Ipedis\SecurityFileBundle\Exception\InvalidEngineTypeException;
@@ -14,13 +16,16 @@ enum BombScannerEngine: string
     case RAR = 'rar';
     case PNG = 'png';
 
+    /**
+     * @throws InvalidEngineTypeException
+     */
     public static function fromString(string $type): self
     {
         return match ($type) {
             self::ZIP->value => self::ZIP,
             self::RAR->value => self::RAR,
             self::PNG->value => self::PNG,
-            default => throw new InvalidEngineTypeException($type)
+            default => throw new InvalidEngineTypeException($type),
         };
     }
 
@@ -32,5 +37,4 @@ enum BombScannerEngine: string
             self::PNG => new PngBompEngine(),
         };
     }
-
 }

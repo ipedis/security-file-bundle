@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\DependencyInjection;
 
 use Ipedis\SecurityFileBundle\Service\BombScanner\BombScannerInterface;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Tests\Kernel\SecurityFileKernel;
@@ -18,9 +21,9 @@ class BombScannerDependencyInjectionTest extends TestCase
         $this->container = $kernel->getContainer();
     }
 
-    public function testBombScannerDecoratorService(): void
+    #[Test]
+    public function bomb_scanner_decorator_service(): void
     {
         $this->assertTrue($this->container->has(BombScannerInterface::class));
     }
-
 }

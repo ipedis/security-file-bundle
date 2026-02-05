@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\DummyService;
 
 use Ipedis\FileSanitizer\Configuration\Configuration;
@@ -25,5 +27,4 @@ abstract class AbstractFileService
     {
         return $this->sanitizer->configuration;
     }
-
 }

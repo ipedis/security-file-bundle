@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Ipedis\SecurityFileBundle\DependencyInjection\Compiler;
 
 use Ipedis\FileSanitizer\Contract\SanitizerInterface;
@@ -11,9 +13,8 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class SanitizerCompilerPass implements CompilerPassInterface
 {
-
     public function __construct(
-        private readonly SanitizerDefinitionFactory $sanitizerDefinitionFactory = new SanitizerDefinitionFactory()
+        private readonly SanitizerDefinitionFactory $sanitizerDefinitionFactory = new SanitizerDefinitionFactory(),
     ) {
     }
 
@@ -43,5 +44,4 @@ class SanitizerCompilerPass implements CompilerPassInterface
             config: $config['config'] ?? []
         );
     }
-
 }

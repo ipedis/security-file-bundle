@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Ipedis\SecurityFileBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
@@ -46,5 +48,4 @@ class Configuration implements ConfigurationInterface
 
         return $treeBuilder;
     }
-
 }

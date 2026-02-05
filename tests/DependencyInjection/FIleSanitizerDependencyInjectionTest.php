@@ -1,10 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\DependencyInjection;
 
 use Ipedis\FileSanitizer\Pipeline\Steps\PhpTagCleanupStep;
 use Ipedis\FileSanitizer\Sanitizer\Html\HtmlSanitizer;
 use Ipedis\FileSanitizer\Sanitizer\Xml\XmlSanitizer;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Tests\DummyService\DummyHtml;
@@ -23,21 +26,24 @@ class FIleSanitizerDependencyInjectionTest extends TestCase
         $this->container = $kernel->getContainer();
     }
 
-    public function testDummyHtml(): void
+    #[Test]
+    public function dummy_html(): void
     {
         $dummyHtml = $this->container->get(DummyHtml::class);
         $this->assertInstanceOf(DummyHtml::class, $dummyHtml);
         $this->assertInstanceOf(HtmlSanitizer::class, $dummyHtml->getSanitizerService());
     }
 
-    public function testDummyXml(): void
+    #[Test]
+    public function dummy_xml(): void
     {
         $dummyXml = $this->container->get(DummyXml::class);
         $this->assertInstanceOf(DummyXml::class, $dummyXml);
         $this->assertInstanceOf(XmlSanitizer::class, $dummyXml->getSanitizerService());
     }
 
-    public function testDummyHtmlWithConfig(): void
+    #[Test]
+    public function dummy_html_with_config(): void
     {
         $dummyHtmlWithConfig = $this->container->get(DummyHtmlWithConfig::class);
         $configuration = $dummyHtmlWithConfig->getConfiguration();
@@ -45,5 +51,4 @@ class FIleSanitizerDependencyInjectionTest extends TestCase
         $this->assertInstanceOf(HtmlSanitizer::class, $dummyHtmlWithConfig->getSanitizerService());
         $this->assertContains(PhpTagCleanupStep::class, $configuration->ignoredSteps);
     }
-
 }

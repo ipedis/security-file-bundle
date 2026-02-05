@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Ipedis\SecurityFileBundle;
 
 use Ipedis\SecurityFileBundle\DependencyInjection\Compiler\SanitizerCompilerPass;

@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\DependencyInjection;
 
 use Ipedis\SecurityFileBundle\Service\Validator\FileValidatorInterface;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Tests\Kernel\SecurityFileKernel;
@@ -18,9 +21,9 @@ class FileValidatorDependencyInjectionTest extends TestCase
         $this->container = $kernel->getContainer();
     }
 
-    public function testFileValidatorService(): void
+    #[Test]
+    public function file_validator_service(): void
     {
         $this->assertTrue($this->container->has(FileValidatorInterface::class));
     }
-
 }

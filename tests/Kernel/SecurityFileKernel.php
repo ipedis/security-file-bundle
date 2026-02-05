@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Kernel;
 
 use Ipedis\SecurityFileBundle\SecurityFileBundle;
@@ -16,8 +18,6 @@ class SecurityFileKernel extends Kernel
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
         $loader->load(__DIR__ . '/config/security_file.yaml', 'yaml');
-        $loader->load(__DIR__.'/config/services.yaml', 'yaml');
+        $loader->load(__DIR__ . '/config/services.yaml', 'yaml');
     }
-
-
 }

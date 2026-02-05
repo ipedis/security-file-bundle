@@ -2,8 +2,8 @@
 
 This bundle includes three libraries for the security of files.
 
-- <a href="https://bitbucket.org/ipedis/file-sanitizer/src/master/">file-sanitizer library</a>
-- <a href="https://bitbucket.org/ipedis/validation-handler/src/master/">validation-handler library</a>
+- <a href="https://github.com/ipedis/file-sanitizer">file-sanitizer library</a>
+- <a href="https://github.com/ipedis/validation-handler">validation-handler library</a>
 - <a href="https://github.com/selective-php/archive-bomb-scanner"> bombScanner library </a>
 
 # Installation :
@@ -13,15 +13,15 @@ add on your composer.json the repository:
 "repositories": [
 {
 "type": "vcs",
-"url": "bitbucket:ipedis/security-file-bundle.git"
+"url": "github:ipedis/security-file-bundle.git"
 },
 {
 "type": "vcs",
-"url": "bitbucket:ipedis/file-sanitizer.git"
+"url": "github:ipedis/file-sanitizer.git"
 },
 {
 "type": "vcs",
-"url": "bitbucket:ipedis/validation-handler.git"
+"url": "github:ipedis/validation-handler.git"
 }
 ...
 ```
@@ -66,7 +66,7 @@ class DummyHtml
     {}
     .....
 ```
-<a href="https://bitbucket.org/ipedis/file-sanitizer/src/master/Readme.md">Library documentation</a>
+<a href="https://github.com/ipedis/file-sanitizer/blob/master/Readme.md">Library documentation</a>
 
 ----
 
@@ -94,6 +94,6 @@ security_file:
 
 Use service `FileValidator`
 
-<a href="https://bitbucket.org/ipedis/validation-handler/src/master/README.md">Library documentation</a>
+<a href="https://github.com/ipedis/validation-handler/blob/master/README.md">Library documentation</a>
 
 

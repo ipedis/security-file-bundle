@@ -1,15 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Ipedis\SecurityFileBundle\Service\BombScanner;
 
+use Ipedis\SecurityFileBundle\Exception\InvalidEngineTypeException;
 use Selective\ArchiveBomb\Scanner\BombScanner;
 use Selective\ArchiveBomb\Scanner\BombScannerResult;
 use SplFileObject;
 
-final class BombScannerDecorator implements BombScannerInterface
+final readonly class BombScannerDecorator implements BombScannerInterface
 {
-
-    public function __construct(private readonly BombScanner $bombScanner, array $engines)
+    public function __construct(private BombScanner $bombScanner, array $engines)
     {
         $this->buildDefaultEngines($engines);
     }
@@ -24,10 +26,14 @@ final class BombScannerDecorator implements BombScannerInterface
         $this->bombScanner->addEngine($bombScannerEngine->buildEngine());
     }
 
+    /**
+     * @throws InvalidEngineTypeException
+     */
     private function buildDefaultEngines(array $engines): void
     {
         if (empty($engines)) {
             $this->addEngine(BombScannerEngine::ZIP);
+
             return;
         }
         foreach ($engines as $engine) {
