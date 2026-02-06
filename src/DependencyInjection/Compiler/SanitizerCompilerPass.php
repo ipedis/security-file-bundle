@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Ipedis\SecurityFileBundle\DependencyInjection\Compiler;
 
 use Ipedis\FileSanitizer\Contract\SanitizerInterface;
+use Ipedis\FileSanitizer\Exception\InvalidSanitizerTypeException;
 use Ipedis\SecurityFileBundle\DependencyInjection\Factory\SanitizerDefinitionFactory;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -14,11 +15,13 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class SanitizerCompilerPass implements CompilerPassInterface
 {
     public function __construct(
-        private readonly SanitizerDefinitionFactory $sanitizerDefinitionFactory = new SanitizerDefinitionFactory(),
-    ) {
-    }
+        private readonly SanitizerDefinitionFactory $sanitizerDefinitionFactory = new SanitizerDefinitionFactory,
+    ) {}
 
-    public function process(ContainerBuilder $container)
+    /**
+     * @throws InvalidSanitizerTypeException
+     */
+    public function process(ContainerBuilder $container): void
     {
         $sanitizersConfig = $container->getParameter('sanitizers');
 
@@ -31,9 +34,12 @@ class SanitizerCompilerPass implements CompilerPassInterface
         $container->getParameterBag()->remove('sanitizers');
     }
 
+    /**
+     * @throws InvalidSanitizerTypeException
+     */
     private function createDefinition(array $config): Definition
     {
-        $resolver = new OptionsResolver();
+        $resolver = new OptionsResolver;
         $resolver->setRequired(['type', 'config'])
             ->setAllowedTypes('type', 'string')
             ->setAllowedTypes('config', 'array');

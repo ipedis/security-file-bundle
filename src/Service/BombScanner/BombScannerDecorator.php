@@ -11,6 +11,9 @@ use SplFileObject;
 
 final readonly class BombScannerDecorator implements BombScannerInterface
 {
+    /**
+     * @throws InvalidEngineTypeException
+     */
     public function __construct(private BombScanner $bombScanner, array $engines)
     {
         $this->buildDefaultEngines($engines);

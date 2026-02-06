@@ -11,9 +11,9 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 class SecurityFileExtension extends Extension
 {
-    public function load(array $configs, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container): void
     {
-        $configuration = new Configuration();
+        $configuration = new Configuration;
         $config = $this->processConfiguration($configuration, $configs);
         $container->setParameter('sanitizers', $config['sanitizers']);
         $container->setParameter('scanner.engines', $config['scanner']['engines'] ?? []);

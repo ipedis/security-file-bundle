@@ -15,6 +15,9 @@ class SanitizerDefinitionFactory
     private const HTML = 'html';
     private const XML = 'xml';
 
+    /**
+     * @throws InvalidSanitizerTypeException
+     */
     public function createDefinition(string $type, array $config): Definition
     {
         $configuration = new Definition(Configuration::class,
