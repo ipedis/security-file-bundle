@@ -14,6 +14,9 @@ final readonly class BombScannerDecorator implements BombScannerInterface
     /**
      * @throws InvalidEngineTypeException
      */
+    /**
+     * @param array<string> $engines
+     */
     public function __construct(private BombScanner $bombScanner, array $engines)
     {
         $this->buildDefaultEngines($engines);
@@ -30,15 +33,18 @@ final readonly class BombScannerDecorator implements BombScannerInterface
     }
 
     /**
+     * @param array<string> $engines
+     *
      * @throws InvalidEngineTypeException
      */
     private function buildDefaultEngines(array $engines): void
     {
-        if (empty($engines)) {
+        if ($engines === []) {
             $this->addEngine(BombScannerEngine::ZIP);
 
             return;
         }
+
         foreach ($engines as $engine) {
             $this->addEngine(BombScannerEngine::fromString($engine));
         }

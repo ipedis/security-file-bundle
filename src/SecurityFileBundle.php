@@ -14,6 +14,6 @@ class SecurityFileBundle extends Bundle
     {
         parent::build($container);
 
-        $container->addCompilerPass(new SanitizerCompilerPass);
+        $container->addCompilerPass(new SanitizerCompilerPass());
     }
 }

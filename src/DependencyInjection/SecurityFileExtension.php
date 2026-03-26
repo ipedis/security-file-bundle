@@ -13,16 +13,22 @@ class SecurityFileExtension extends Extension
 {
     public function load(array $configs, ContainerBuilder $container): void
     {
-        $configuration = new Configuration;
+        $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
-        $container->setParameter('sanitizers', $config['sanitizers']);
-        $container->setParameter('scanner.engines', $config['scanner']['engines'] ?? []);
+        /** @var array<string, array{type: string, config: array<string, mixed>}> $sanitizers */
+        $sanitizers = $config['sanitizers'];
+        $container->setParameter('sanitizers', $sanitizers);
 
-        $loader = new YamlFileLoader(
+        /** @var array{engines?: array<string>} $scanner */
+        $scanner = $config['scanner'] ?? [];
+        $engines = $scanner['engines'] ?? [];
+        $container->setParameter('scanner.engines', $engines);
+
+        $yamlFileLoader = new YamlFileLoader(
             $container,
             new FileLocator(__DIR__ . '/../../config')
         );
 
-        $loader->load('services.yaml');
+        $yamlFileLoader->load('services.yaml');
     }
 }

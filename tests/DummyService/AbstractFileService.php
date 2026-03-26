@@ -6,6 +6,7 @@ namespace Tests\DummyService;
 
 use Ipedis\FileSanitizer\Configuration\Configuration;
 use Ipedis\FileSanitizer\Contract\SanitizerInterface;
+use Ipedis\FileSanitizer\Pipeline\PipelineSanitizerAbstract;
 
 abstract class AbstractFileService
 {
@@ -25,6 +26,10 @@ abstract class AbstractFileService
 
     public function getConfiguration(): ?Configuration
     {
-        return $this->sanitizer->configuration;
+        if ($this->sanitizer instanceof PipelineSanitizerAbstract) {
+            return $this->sanitizer->configuration;
+        }
+
+        return null;
     }
 }

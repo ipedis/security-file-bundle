@@ -15,7 +15,7 @@ class SecurityFileKernel extends Kernel
         yield new SecurityFileBundle();
     }
 
-    public function registerContainerConfiguration(LoaderInterface $loader)
+    public function registerContainerConfiguration(LoaderInterface $loader): void
     {
         $loader->load(__DIR__ . '/config/security_file.yaml', 'yaml');
         $loader->load(__DIR__ . '/config/services.yaml', 'yaml');
