@@ -14,10 +14,9 @@ use ReflectionException;
 class FileValidator implements FileValidatorInterface
 {
     /**
-     * @throws ReflectionException
-     */
-    /**
      * @param array<ConstraintInterface> $constraints
+     *
+     * @throws ReflectionException
      */
     public function validate(DataWrapperInterface|\SplFileInfo $data, array $constraints): ValidationResult
     {

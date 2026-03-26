@@ -16,7 +16,7 @@ use Tests\DummyService\DummyXml;
 use Tests\Kernel\SecurityFileKernel;
 use Ipedis\FileSanitizer\Configuration\Configuration;
 
-final class FIleSanitizerDependencyInjectionTest extends TestCase
+final class FileSanitizerDependencyInjectionTest extends TestCase
 {
     private ContainerInterface $container;
 

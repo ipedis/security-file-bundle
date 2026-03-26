@@ -23,7 +23,7 @@ class SanitizerDefinitionFactory
      */
     public function createDefinition(string $type, array $config): Definition
     {
-        $definition = new Definition(
+        $configurationDefinition = new Definition(
             Configuration::class,
             [
                 $config['ignored_step'] ?? [],
@@ -32,8 +32,8 @@ class SanitizerDefinitionFactory
         );
 
         return match ($type) {
-            self::HTML => new Definition(HtmlSanitizer::class, [$definition]),
-            self::XML => new Definition(XmlSanitizer::class, [$definition]),
+            self::HTML => new Definition(HtmlSanitizer::class, [$configurationDefinition]),
+            self::XML => new Definition(XmlSanitizer::class, [$configurationDefinition]),
             default => throw new InvalidSanitizerTypeException(type: $type),
         };
     }

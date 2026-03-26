@@ -12,10 +12,9 @@ use SplFileObject;
 final readonly class BombScannerDecorator implements BombScannerInterface
 {
     /**
-     * @throws InvalidEngineTypeException
-     */
-    /**
      * @param array<string> $engines
+     *
+     * @throws InvalidEngineTypeException
      */
     public function __construct(private BombScanner $bombScanner, array $engines)
     {
