@@ -15,14 +15,16 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class SanitizerCompilerPass implements CompilerPassInterface
 {
     public function __construct(
-        private readonly SanitizerDefinitionFactory $sanitizerDefinitionFactory = new SanitizerDefinitionFactory,
-    ) {}
+        private readonly SanitizerDefinitionFactory $sanitizerDefinitionFactory = new SanitizerDefinitionFactory(),
+    ) {
+    }
 
     /**
      * @throws InvalidSanitizerTypeException
      */
     public function process(ContainerBuilder $container): void
     {
+        /** @var array<string, array{type: string, config: array<string, mixed>}> $sanitizersConfig */
         $sanitizersConfig = $container->getParameter('sanitizers');
 
         foreach ($sanitizersConfig as $sanitizerName => $sanitizerConfig) {
@@ -35,19 +37,21 @@ class SanitizerCompilerPass implements CompilerPassInterface
     }
 
     /**
+     * @param array{type: string, config: array<string, mixed>} $config
+     *
      * @throws InvalidSanitizerTypeException
      */
     private function createDefinition(array $config): Definition
     {
-        $resolver = new OptionsResolver;
-        $resolver->setRequired(['type', 'config'])
+        $optionsResolver = new OptionsResolver();
+        $optionsResolver->setRequired(['type', 'config'])
             ->setAllowedTypes('type', 'string')
             ->setAllowedTypes('config', 'array');
-        $resolver->resolve($config);
+        $optionsResolver->resolve($config);
 
         return $this->sanitizerDefinitionFactory->createDefinition(
             type: $config['type'],
-            config: $config['config'] ?? []
+            config: $config['config']
         );
     }
 }

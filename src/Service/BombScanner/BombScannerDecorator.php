@@ -12,6 +12,8 @@ use SplFileObject;
 final readonly class BombScannerDecorator implements BombScannerInterface
 {
     /**
+     * @param array<string> $engines
+     *
      * @throws InvalidEngineTypeException
      */
     public function __construct(private BombScanner $bombScanner, array $engines)
@@ -30,15 +32,18 @@ final readonly class BombScannerDecorator implements BombScannerInterface
     }
 
     /**
+     * @param array<string> $engines
+     *
      * @throws InvalidEngineTypeException
      */
     private function buildDefaultEngines(array $engines): void
     {
-        if (empty($engines)) {
+        if ($engines === []) {
             $this->addEngine(BombScannerEngine::ZIP);
 
             return;
         }
+
         foreach ($engines as $engine) {
             $this->addEngine(BombScannerEngine::fromString($engine));
         }

@@ -14,16 +14,18 @@ use Tests\DummyService\DummyHtml;
 use Tests\DummyService\DummyHtmlWithConfig;
 use Tests\DummyService\DummyXml;
 use Tests\Kernel\SecurityFileKernel;
+use Ipedis\FileSanitizer\Configuration\Configuration;
 
-class FIleSanitizerDependencyInjectionTest extends TestCase
+final class FileSanitizerDependencyInjectionTest extends TestCase
 {
     private ContainerInterface $container;
 
     protected function setUp(): void
     {
-        $kernel = new SecurityFileKernel(environment: 'test', debug: true);
-        $kernel->boot();
-        $this->container = $kernel->getContainer();
+        $securityFileKernel = new SecurityFileKernel(environment: 'test', debug: true);
+        $securityFileKernel->boot();
+
+        $this->container = $securityFileKernel->getContainer();
     }
 
     #[Test]
@@ -46,9 +48,10 @@ class FIleSanitizerDependencyInjectionTest extends TestCase
     public function dummy_html_with_config(): void
     {
         $dummyHtmlWithConfig = $this->container->get(DummyHtmlWithConfig::class);
-        $configuration = $dummyHtmlWithConfig->getConfiguration();
         $this->assertInstanceOf(DummyHtmlWithConfig::class, $dummyHtmlWithConfig);
         $this->assertInstanceOf(HtmlSanitizer::class, $dummyHtmlWithConfig->getSanitizerService());
+        $configuration = $dummyHtmlWithConfig->getConfiguration();
+        $this->assertInstanceOf(Configuration::class, $configuration);
         $this->assertContains(PhpTagCleanupStep::class, $configuration->ignoredSteps);
     }
 }

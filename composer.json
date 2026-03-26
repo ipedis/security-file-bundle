@@ -1,12 +1,7 @@
 {
     "name": "ipedis/security-file-bundle",
     "description": "Symfony bundle for file security",
-    "autoload": {
-        "psr-4": {
-            "Ipedis\\SecurityFileBundle\\": "src/",
-            "Tests\\": "tests/"
-        }
-    },
+    "type": "library",
     "authors": [
         {
             "name": "melchior",
@@ -25,21 +20,23 @@
         "selective/archive-bomb-scanner": "^2.0",
         "ipedis/validation-handler": "^2.1"
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "github:ipedis/file-sanitizer.git"
-        },
-        {
-            "type": "vcs",
-            "url": "github:ipedis/validation-handler.git"
+    "autoload": {
+        "psr-4": {
+            "Ipedis\\SecurityFileBundle\\": "src/"
         }
-    ],
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
     "require-dev": {
-        "phpunit/phpunit": "^11.5",
-        "symfony/phpunit-bridge": "6.0.*",
         "rector/rector": "^2.3",
-        "laravel/pint": "^1.27"
+        "phpunit/phpunit": "^11.5",
+        "phpstan/phpstan": "^2.1",
+        "laravel/pint": "^1.27",
+        "phpstan/phpstan-strict-rules": "^2.0",
+        "symfony/phpunit-bridge": "6.0.*"
     },
     "extra": {
         "symfony": {
@@ -47,5 +44,20 @@
                 "flex://defaults"
             ]
         }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "test:coverage": "phpunit --coverage-html coverage",
+        "phpstan": "phpstan analyse --memory-limit 2024M",
+        "pint": "pint",
+        "pint:check": "pint --test",
+        "rector": "rector process",
+        "rector:check": "rector process --dry-run",
+        "qa": [
+            "@rector",
+            "@pint",
+            "@phpstan",
+            "@test"
+        ]
     }
 }

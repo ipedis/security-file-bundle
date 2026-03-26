@@ -10,15 +10,16 @@ use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Tests\Kernel\SecurityFileKernel;
 
-class FileValidatorDependencyInjectionTest extends TestCase
+final class FileValidatorDependencyInjectionTest extends TestCase
 {
     private ContainerInterface $container;
 
     protected function setUp(): void
     {
-        $kernel = new SecurityFileKernel(environment: 'test', debug: true);
-        $kernel->boot();
-        $this->container = $kernel->getContainer();
+        $securityFileKernel = new SecurityFileKernel(environment: 'test', debug: true);
+        $securityFileKernel->boot();
+
+        $this->container = $securityFileKernel->getContainer();
     }
 
     #[Test]

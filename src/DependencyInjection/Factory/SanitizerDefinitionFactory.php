@@ -13,14 +13,18 @@ use Symfony\Component\DependencyInjection\Definition;
 class SanitizerDefinitionFactory
 {
     private const HTML = 'html';
+
     private const XML = 'xml';
 
     /**
+     * @param array<string, mixed> $config
+     *
      * @throws InvalidSanitizerTypeException
      */
     public function createDefinition(string $type, array $config): Definition
     {
-        $configuration = new Definition(Configuration::class,
+        $configurationDefinition = new Definition(
+            Configuration::class,
             [
                 $config['ignored_step'] ?? [],
                 $config['custom_step'] ?? [],
@@ -28,8 +32,8 @@ class SanitizerDefinitionFactory
         );
 
         return match ($type) {
-            self::HTML => new Definition(HtmlSanitizer::class, [$configuration]),
-            self::XML => new Definition(XmlSanitizer::class, [$configuration]),
+            self::HTML => new Definition(HtmlSanitizer::class, [$configurationDefinition]),
+            self::XML => new Definition(XmlSanitizer::class, [$configurationDefinition]),
             default => throw new InvalidSanitizerTypeException(type: $type),
         };
     }

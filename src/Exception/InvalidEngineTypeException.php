@@ -8,6 +8,6 @@ class InvalidEngineTypeException extends \Exception
 {
     public function __construct(string $type, int $code = 0)
     {
-        parent::__construct("$type is not a valid engine type", $code);
+        parent::__construct($type . ' is not a valid engine type', $code);
     }
 }

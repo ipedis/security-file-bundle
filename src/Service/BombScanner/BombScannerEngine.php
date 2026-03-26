@@ -32,9 +32,9 @@ enum BombScannerEngine: string
     public function buildEngine(): EngineInterface
     {
         return match ($this) {
-            self::ZIP => new ZipBombEngine,
-            self::RAR => new RarBombEngine,
-            self::PNG => new PngBompEngine,
+            self::ZIP => new ZipBombEngine(),
+            self::RAR => new RarBombEngine(),
+            self::PNG => new PngBompEngine(),
         };
     }
 }
