@@ -1,6 +1,6 @@
 FROM php:8.2-cli-alpine
 
-RUN apk add --no-cache git unzip libxml2-dev oniguruma-dev libzip-dev $PHPIZE_DEPS \
+RUN apk add --no-cache git unzip libxml2-dev oniguruma-dev libzip-dev linux-headers $PHPIZE_DEPS \
     && pecl install xdebug \
     && docker-php-ext-enable xdebug \
     && docker-php-ext-install dom xml mbstring zip \

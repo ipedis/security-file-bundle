@@ -1,6 +1,6 @@
 DC := docker compose exec app
 
-.PHONY: up down install update test coverage phpstan pint pint-check rector rector-check qa shell
+.PHONY: up down install update test coverage phpstan pint pint-check rector rector-check qa shell quality
 
 up:
 	docker compose up -d --build
@@ -40,3 +40,5 @@ qa: up
 
 shell: up
 	docker compose exec app /bin/sh
+
+quality: up rector pint phpstan test
