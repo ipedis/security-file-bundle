@@ -2,6 +2,7 @@
     "name": "ipedis/security-file-bundle",
     "description": "Symfony bundle for file security",
     "type": "library",
+    "license": "CC-BY-1.0",
     "authors": [
         {
             "name": "melchior",
