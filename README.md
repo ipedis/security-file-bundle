@@ -124,7 +124,6 @@ class UploadValidator
 
 | PHP | Symfony | Status |
 |-----|---------|--------|
-| 8.2 | 7.x | ✅ |
 | 8.3 | 7.x | ✅ |
 | 8.4 | 7.x | ✅ |
 | 8.5 | 7.x | ✅ |
