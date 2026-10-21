@@ -12,9 +12,9 @@ use Symfony\Component\DependencyInjection\Definition;
 
 class SanitizerDefinitionFactory
 {
-    private const HTML = 'html';
+    private const string HTML = 'html';
 
-    private const XML = 'xml';
+    private const string XML = 'xml';
 
     /**
      * @param array<string, mixed> $config

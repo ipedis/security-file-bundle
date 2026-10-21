@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4eb70ae0ae8e2d83dfd73d1c2f4395e8",
+    "content-hash": "e0c72c394ce44e632dcedf03f7845fde",
     "packages": [
         {
             "name": "ipedis/file-sanitizer",
@@ -4386,7 +4386,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=8.2"
+        "php": ">=8.3"
     },
     "platform-dev": {},
     "plugin-api-version": "2.6.0"
